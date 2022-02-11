@@ -1,0 +1,289 @@
+.todo {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.todo__headng {
+  margin: 0;
+  margin-bottom: 32px;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+  line-height: 1.1;
+}
+
+.todo__aside {
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.todo__form {
+  position: relative;
+}
+
+.todo__top__button {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%) rotate(90deg);
+  display: none;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  color: #e6e6e6;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: color 0.1s ease;
+
+  &::after {
+    content: "❯";
+    font-size: 22px;
+    text-align: center;
+  }
+
+  &--active {
+    display: block;
+  }
+
+  &--checked {
+    color: #777777;
+  }
+}
+
+.todo__input {
+  width: 100%;
+  padding: 16px 16px 16px 60px;
+  font-size: 24px;
+  line-height: 1.4em;
+  color: #4d4d4d;
+  background-color: #fff;
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    opacity: 0.2;
+    font-style: italic;
+  }
+}
+
+.todo__button {
+  position: absolute;
+  display: none;
+  right: 15px;
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  &::after {
+    content: "+";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    font-size: 30px;
+    color: #cc9a9a;
+  }
+}
+
+.todo__list {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border-top: 1px solid #e6e6e6;
+}
+
+.todo__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 15px 15px 60px;
+  font-size: 24px;
+  line-height: 1.2;
+
+  & + & {
+    border-top: 1px solid #ededed;
+  }
+}
+
+.todo__item__label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  z-index: 2;
+  display: block;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ededed;
+  border-radius: 50%;
+}
+
+.todo__item__text {
+  display: block;
+  transition: color 0.15s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo__item__checkbox {
+  display: none;
+
+  &:checked {
+    & ~ .todo__item__label {
+      background-image: url("../images/tick.svg");
+      background-size: 25px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    & ~ .todo__item__text {
+      color: #d9d9d9;
+      text-decoration: line-through;
+    }
+  }
+}
+
+.todo__item__button {
+  display: none;
+  height: 25px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+
+  &::after {
+    content: "×";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    font-size: 30px;
+    color: #cc9a9a;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.todo__item:hover .todo__item__button {
+  display: block;
+}
+
+.todo__bottom {
+  position: relative;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  color: #777;
+  border-top: 1px solid #e6e6e6;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2),
+      0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.todo__checked-count {
+  position: absolute;
+  margin: 0;
+}
+
+.todo__options {
+  display: flex;
+  z-index: 10;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+.todo__option {
+  & + & {
+    margin-left: 6px;
+  }
+}
+
+.todo__option__button {
+  color: inherit;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.todo__option__button--active {
+  border-color: rgba(175, 47, 47, 0.2);
+}
+
+.todo__bottom__button {
+  position: absolute;
+  display: none;
+  right: 15px;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  color: #777777;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &--active {
+    display: block;
+  }
+}
+
+.todo__list--active ~ .todo__bottom {
+  display: flex;
+}
+
+@media only screen and(max-width: 430px) {
+  .todo__button {
+    display: block;
+  }
+
+  .todo__item__button {
+    display: block;
+  }
+
+  .todo__bottom {
+    flex-direction: column-reverse;
+    row-gap: 10px;
+  }
+
+  .todo__checked-count {
+    position: static;
+  }
+}

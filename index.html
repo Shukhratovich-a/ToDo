@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/tick.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <section class="todo">
+      <div class="container">
+        <h1 class="todo__headng">todos</h1>
+
+        <div class="todo__aside">
+          <form class="todo__form">
+            <button class="todo__top__button" type="button"></button>
+
+            <input
+              class="todo__input"
+              name="todo__name"
+              type="text"
+              placeholder="What needs to be done?"
+              autocomplete="off"
+            />
+
+            <button class="todo__button"></button>
+          </form>
+
+          <ul class="todo__list"></ul>
+
+          <div class="todo__bottom">
+            <p class="todo__checked-count"><span>0</span> tasks left</p>
+
+            <ul class="todo__options">
+              <li class="todo__option">
+                <button class="todo__option__button" type="button" name="all">All</button>
+              </li>
+              <li class="todo__option">
+                <button class="todo__option__button" type="button" name="active">Active</button>
+              </li>
+              <li class="todo__option">
+                <button class="todo__option__button" type="button" name="completed">Completed</button>
+              </li>
+            </ul>
+
+            <button class="todo__bottom__button" type="button">Clear completed</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMPLATE -->
+    <template id="todo-template">
+      <li class="todo__item">
+        <input class="todo__item__checkbox" type="checkbox" name="todo_item-completed" id="checkbox" />
+
+        <label class="todo__item__label" for="checkbox"></label>
+
+        <span class="todo__item__text">Aboooo</span>
+
+        <button class="todo__item__button" type="button"></button>
+      </li>
+    </template>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/main.js"></script>
+    <!-- <script src="./js/sadj.js"></script> -->
+  </body>
+</html>
