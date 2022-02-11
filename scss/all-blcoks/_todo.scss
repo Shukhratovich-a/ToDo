@@ -269,7 +269,15 @@
   display: flex;
 }
 
-@media only screen and(max-width: 430px) {
+@media only screen and(max-width: 460px) {
+  .todo__input{
+    font-size: 16px;
+  }
+
+  .todo__item{
+    font-size: 16px;
+  }
+
   .todo__button {
     display: block;
   }
@@ -284,6 +292,9 @@
   }
 
   .todo__checked-count {
+    position: static;
+  }
+  .todo__bottom__button {
     position: static;
   }
 }
